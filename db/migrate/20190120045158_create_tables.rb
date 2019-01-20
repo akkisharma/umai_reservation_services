@@ -6,7 +6,7 @@ class CreateTables < ActiveRecord::Migration[5.2]
       t.integer :max_guest
       t.boolean :is_free
       t.time :booked_at
-      t.references :restaurant, foreign_key: true
+      t.references :restaurant, foreign_key: true, on_delete: :cascade
 
       t.timestamps
     end
