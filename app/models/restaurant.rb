@@ -20,7 +20,7 @@ class Restaurant < ApplicationRecord
   private
 
   def end_must_be_after_start
-  	error_msg = "shift end time must be after shift start time"
+  	error_msg = "time must be after shift start time"
 	  if morning_shift_end < morning_shift_start
     	errors.add(:morning_shift_end, error_msg)
   	end

@@ -5,6 +5,7 @@ class CreateReservations < ActiveRecord::Migration[5.2]
       t.references :table, foreign_key: true
       t.references :restaurant, foreign_key: true
       t.datetime :reservation_time
+      t.integer :guest_count
 
       t.timestamps
     end

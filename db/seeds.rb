@@ -26,28 +26,24 @@ table_1 = Table.create({
 	restaurant: restaurant,
 	name: "table 1",
 	min_guest: 4,
-	max_guest: 6,
-	booked_at: "10:00 am",
-	is_free: false })
+	max_guest: 6 })
 
 
 table_2 = Table.create({
 	restaurant: restaurant,
 	name: "table 1",
 	min_guest: 4,
-	max_guest: 8,
-	booked_at: "11:00 am",
-	is_free: false })
+	max_guest: 8 })
 
 table_3 = Table.create({
 	restaurant: restaurant,
 	name: "table 1",
 	min_guest: 2,
-	max_guest: 4,
-	is_free: false })
+	max_guest: 4 })
 
 Reservation.create({
 	guest: guest,
 	restaurant: restaurant,
 	table: table_1,
+	guest_count: 4,
 	reservation_time: "20 jan 2019 10:00 am" })
