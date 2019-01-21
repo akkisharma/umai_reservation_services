@@ -54,8 +54,9 @@ ActiveRecord::Schema.define(version: 2019_01_20_052557) do
     t.string "name"
     t.integer "min_guest"
     t.integer "max_guest"
-    t.boolean "is_free"
+    t.boolean "is_free", default: true
     t.time "booked_at"
+    t.time "booked_end"
     t.integer "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
