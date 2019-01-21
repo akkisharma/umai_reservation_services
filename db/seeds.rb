@@ -31,13 +31,13 @@ table_1 = Table.create({
 
 table_2 = Table.create({
 	restaurant: restaurant,
-	name: "table 1",
+	name: "table 2",
 	min_guest: 4,
 	max_guest: 8 })
 
 table_3 = Table.create({
 	restaurant: restaurant,
-	name: "table 1",
+	name: "table 3",
 	min_guest: 2,
 	max_guest: 4 })
 

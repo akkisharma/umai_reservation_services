@@ -16,6 +16,15 @@ class Restaurant < ApplicationRecord
 	validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, message: "Invalid email id", :on => :create
   validate :end_must_be_after_start
 
+  def convert_restaurant_shift_time_in_todays_format
+  	todays_date_string = Time.now.strftime('%d %b, %Y')
+  	parsed_restaurant_shift_time = {}
+  	parsed_restaurant_shift_time[:morning_start_shift] = Time.parse("#{todays_date_string} #{self.morning_shift_start.strftime('%I:%M%p')}")
+	  parsed_restaurant_shift_time[:morning_end_shift]   = Time.parse("#{todays_date_string} #{self.morning_shift_end.strftime('%I:%M%p')}")
+	  parsed_restaurant_shift_time[:night_start_shift]   = Time.parse("#{todays_date_string} #{self.night_shift_start.strftime('%I:%M%p')}")
+	  parsed_restaurant_shift_time[:night_end_shift]     = Time.parse("#{todays_date_string} #{self.night_shift_end.strftime('%I:%M%p')}")
+	  parsed_restaurant_shift_time
+  end
 
   private
 

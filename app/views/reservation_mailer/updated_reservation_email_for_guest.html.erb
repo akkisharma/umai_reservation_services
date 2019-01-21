@@ -1,0 +1,21 @@
+
+  <h1>Hi , <%= @guest.name %></h1>
+
+  <h3>Welcome to , <%= @restaurant.name %></h3>
+
+  <p>
+  	<% if @reservation.guest_count_previous_change.present? %>
+	    You have modified reserved table <%= @table.name %>, from <b><%= @reservation.guest_count_previous_change[0] %></b> to <b><%= @reservation.guest_count_previous_change[1] %></b> number of guests.<br>
+	    <br>
+    <% end %>
+
+  	<% if @reservation.reservation_time_previous_change.present? %>
+	    Your the reservation time changed from <b><%= @reservation.reservation_time_previous_change[0].strftime("%d %B, %Y %H:%M %p") %></b> to <b><%= @reservation.reservation_time_previous_change[1].strftime("%d %B, %Y %H:%M %p") %></b>.
+	  <% end %>
+  </p>
+
+  <p>
+    For any feedback, just put a mail: <%= @restaurant.email %>.<br>
+    You can also call on <%= @restaurant.phone %>
+  </p>
+  <p>Thanks for preference and have a great day!</p>

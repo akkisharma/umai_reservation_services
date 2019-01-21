@@ -21,13 +21,14 @@ class Reservation < ApplicationRecord
 	  	restaurant = self.restaurant
 	  	table = self.table
 
-	  	parsed_reservation_time = Time.parse(reservation_time.strftime("%d %b, %Y %I:%M%p"))
-	  	morning_start_shift_in_today_format = Time.parse("#{Time.now.strftime('%d %b, %Y')} #{restaurant.morning_shift_start.strftime('%I:%M%p')}")
-	  	morning_end_shift_in_today_format = Time.parse("#{Time.now.strftime('%d %b, %Y')} #{restaurant.morning_shift_end.strftime('%I:%M%p')}")
-	  	night_start_shift_in_today_format = Time.parse("#{Time.now.strftime('%d %b, %Y')} #{restaurant.night_shift_start.strftime('%I:%M%p')}")
-	  	night_end_shift_in_today_format = Time.parse("#{Time.now.strftime('%d %b, %Y')} #{restaurant.night_shift_end.strftime('%I:%M%p')}")
 
-	  	unless parsed_reservation_time >= morning_start_shift_in_today_format && parsed_reservation_time <= morning_end_shift_in_today_format || parsed_reservation_time >= night_start_shift_in_today_format && parsed_reservation_time <= night_end_shift_in_today_format
+	  	parsed_reservation_time = Time.parse(reservation_time.strftime("%d %b, %Y %I:%M%p"))
+	  	parsed_restaurant_shift_time = restaurant.convert_restaurant_shift_time_in_todays_format
+
+	  	unless parsed_reservation_time >= parsed_restaurant_shift_time[:morning_start_shift] &&
+	  		     parsed_reservation_time <= parsed_restaurant_shift_time[:morning_end_shift] ||
+	  		     parsed_reservation_time >= parsed_restaurant_shift_time[:night_start_shift] &&
+	  		     parsed_reservation_time <= parsed_restaurant_shift_time[:night_end_shift]
 	  		errors.add(:reservation_time, "should be in restaurant shift timings")
 	  	end
 
@@ -51,7 +52,7 @@ class Reservation < ApplicationRecord
   		restaurant = self.restaurant
   		restaurant_reservations_of_date = Reservation.where(restaurant_id: restaurant.id, table_id: table.id, reservation_time: self.reservation_time.beginning_of_day..self.reservation_time.end_of_day)
 
-			number_of_slots_alloted_for_table = restaurant_reservations_of_date.map { |res| self.reservation_time >= res.reservation_time && self.reservation_time <= res.reservation_end }.count(true)
+			number_of_slots_alloted_for_table = restaurant_reservations_of_date.map { |res| self.reservation_time >= res.reservation_time && self.reservation_time < res.reservation_end }.count(true)
 
 			if number_of_slots_alloted_for_table > 0
   			errors.add(:reservation_time, "is already alloted to the table")

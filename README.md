@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Things you need to do for application setup:
+---------------------------------------------------------
 
-* Ruby version
 
-* System dependencies
+# Install Ruby version:
 
-* Configuration
+	- ruby 2.6.0p0
 
-* Database creation
 
-* Database initialization
+# Install Rails Version:
 
-* How to run the test suite
+	- Rails 5.2.2
 
-* Services (job queues, cache servers, search engines, etc.)
+# download all gem dependencies:
 
-* Deployment instructions
+	- bundle install
 
-* ...
+# Database setup:
+
+	- rails db:create
+	- rails db:migrate
+	- rails db:seed
+
+
+# Run the rails server:
+
+	- rails s
+
+
+# Consume rails API with running IP and port
+
+	- API list given in project documentation
+

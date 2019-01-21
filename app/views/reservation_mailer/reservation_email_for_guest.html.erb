@@ -1,17 +1,17 @@
 
 
-  <h1>Hi , <%= @guest.name %></h1>
+  <h1>Hi , <b><%= @guest.name %></b></h1>
 
-  <h3>Welcome to , <%= @restaurant.name %></h3>
+  <h3>Welcome to , <b><%= @restaurant.name %></b></h3>
 
   <p>
-    You have successfully reserved table <%= @table.name %>, with <%= @reservation.guest_count %> number of guests.<br>
+    You have successfully reserved table <b><%= @table.name %></b>, with <b><%= @reservation.guest_count %></b> number of guests.<br>
     <br>
-    Please join on time <%= @reservation.reservation_time.strftime("%d %B, %Y %H:%M %p") %>.
+    Please join on time <b><%= @reservation.reservation_time.strftime("%d %B, %Y %H:%M %p") %></b>.
   </p>
 
   <p>
     For any feedback, just put a mail: <%= @restaurant.email %>.<br>
-    You can also call on <%= @restaurant.phone %>
+    You can also call on <b><%= @restaurant.phone %></b>
   </p>
   <p>Thanks for preference and have a great day!</p>
