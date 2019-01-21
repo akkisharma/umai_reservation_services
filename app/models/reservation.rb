@@ -8,7 +8,10 @@ class Reservation < ApplicationRecord
 	# Validations
   validates_presence_of :guest, :table, :restaurant, :reservation_time, :guest_count, presence: true
   validate :reservation_time_in_shift_range
+  validate :check_if_table_available
 
+  # Callbacks
+  before_save :set_reservation_end_time
 
   private
 
@@ -39,6 +42,29 @@ class Reservation < ApplicationRecord
 	  	return false
 	  end
 
+  end
+
+  def check_if_table_available
+  	begin
+
+  		table = self.table
+  		restaurant = self.restaurant
+  		restaurant_reservations_of_date = Reservation.where(restaurant_id: restaurant.id, table_id: table.id, reservation_time: self.reservation_time.beginning_of_day..self.reservation_time.end_of_day)
+
+			number_of_slots_alloted_for_table = restaurant_reservations_of_date.map { |res| self.reservation_time >= res.reservation_time && self.reservation_time <= res.reservation_end }.count(true)
+
+			if number_of_slots_alloted_for_table > 0
+  			errors.add(:reservation_time, "is already alloted to the table")
+  		end
+
+
+  	rescue Exception => e
+  		return false
+  	end
+  end
+
+  def set_reservation_end_time
+  	self.reservation_end = self.reservation_time + 1.hour
   end
 
 end

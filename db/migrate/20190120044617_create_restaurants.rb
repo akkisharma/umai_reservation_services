@@ -9,7 +9,6 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
       t.time :night_shift_start
       t.time :night_shift_end
       t.boolean :is_open
-      t.boolean :free_tables
       t.text :address
       t.decimal :latitude
       t.decimal :longitude

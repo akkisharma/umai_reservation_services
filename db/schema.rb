@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_01_20_052557) do
     t.integer "table_id"
     t.integer "restaurant_id"
     t.datetime "reservation_time"
+    t.datetime "reservation_end"
     t.integer "guest_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,7 +42,6 @@ ActiveRecord::Schema.define(version: 2019_01_20_052557) do
     t.time "night_shift_start"
     t.time "night_shift_end"
     t.boolean "is_open"
-    t.boolean "free_tables"
     t.text "address"
     t.decimal "latitude"
     t.decimal "longitude"
@@ -54,9 +54,6 @@ ActiveRecord::Schema.define(version: 2019_01_20_052557) do
     t.string "name"
     t.integer "min_guest"
     t.integer "max_guest"
-    t.boolean "is_free", default: true
-    t.time "booked_at"
-    t.time "booked_end"
     t.integer "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
