@@ -92,7 +92,7 @@ Rails.application.configure do
 	  port:                 587,
 	  domain:               'gmail.com', # currently no domain available
 	  user_name:            'sharma.akash1892@gmail.com',  # currently no username available
-	  password:             'akkikkk5',  # currently no password available
+	  password:             'atvaeungcnqefpgx',  # currently no password available
 	  authentication:       :login,
 	  enable_starttls_auto: true }
 
