@@ -86,17 +86,17 @@ Rails.application.configure do
 
 
   # here the required email settings
-	# config.action_mailer.delivery_method = :smtp
-	# config.action_mailer.smtp_settings = {
-	#   address:              'smtp.gmail.com',
-	#   port:                 587,
-	#   domain:               'example.com', # currently no domain available
-	#   user_name:            '<username>',  # currently no username available
-	#   password:             '<password>',  # currently no password available
-	#   authentication:       'plain',
-	#   enable_starttls_auto: true }
+	config.action_mailer.delivery_method = :smtp
+	config.action_mailer.smtp_settings = {
+	  address:              'smtp.gmail.com',
+	  port:                 587,
+	  domain:               'gmail.com', # currently no domain available
+	  user_name:            'sharma.akash1892@gmail.com',  # currently no username available
+	  password:             'akkikkk5',  # currently no password available
+	  authentication:       'plain',
+	  enable_starttls_auto: true }
 
 	# config.action_mailer.perform_deliveries = true
 	# config.action_mailer.raise_delivery_errors = true
-	config.action_mailer.default_options = {from: 'no-reply@example.com'}
+	config.action_mailer.default_options = {from: 'sharma.akash1892@gmail.com'}
 end
