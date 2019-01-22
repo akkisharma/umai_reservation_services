@@ -25,4 +25,6 @@ test:
 production:
   <<: *default
   database: production_db
+  username: akkiapp
+  password: Akash@153
   pool: 10
