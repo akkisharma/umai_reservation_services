@@ -93,7 +93,7 @@ Rails.application.configure do
 	  domain:               'gmail.com', # currently no domain available
 	  user_name:            'sharma.akash1892@gmail.com',  # currently no username available
 	  password:             'akkikkk5',  # currently no password available
-	  authentication:       'plain',
+	  authentication:       :login,
 	  enable_starttls_auto: true }
 
 	# config.action_mailer.perform_deliveries = true
