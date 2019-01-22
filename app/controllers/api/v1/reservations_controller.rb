@@ -8,8 +8,8 @@ class Api::V1::ReservationsController < ApplicationController
   def create
 		reservation = Reservation.create!(reservation_params)
 		if reservation.persisted?
-			ReservationMailer.with(reservation: reservation).reservation_email_for_guest.deliver_now
-			ReservationMailer.with(reservation: reservation).reservation_email_for_restaurant.deliver_now
+			ReservationMailer.with(reservation: reservation).reservation_email_for_guest#.deliver_now
+			ReservationMailer.with(reservation: reservation).reservation_email_for_restaurant#.deliver_now
 		end
 		json_response(reservation, :created)
   end
@@ -24,7 +24,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   			reservation.save!
   			if reservation.guest_count_previously_changed? || reservation.reservation_time_previously_changed?
-					ReservationMailer.with(reservation: reservation).updated_reservation_email_for_guest.deliver_now
+					ReservationMailer.with(reservation: reservation).updated_reservation_email_for_guest#.deliver_now
   			end
   		end
 			status = reservation.errors.present? ? :unprocessable_entity : :ok
