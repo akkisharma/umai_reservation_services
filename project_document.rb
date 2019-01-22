@@ -3,7 +3,7 @@ API List:
 
 1: create a reservation
 
-URL: http://localhost:3000/api/v1/reservations
+URL: https://restaurant-services.herokuapp.com/api/v1/reservations
 method: POST
 params:
 {
@@ -11,14 +11,14 @@ params:
 	"restaurant_id" : 1,
 	"table_id": 1,
   "guest_count" : 4,
-	"reservation_time" : "22 jan 2019 08:00 am"
+	"reservation_time" : "22 jan 2019 12:00 pm"
 }
 
 
 
 2: updates the reservation
 
-URL: http://localhost:3000/api/v1/reservations/<reservation_id>
+URL: https://restaurant-services.herokuapp.com/api/v1/reservations/<reservation_id>
 method: PUT
 params:
 {
@@ -27,7 +27,8 @@ params:
 }
 
 
+
 3: list of reservations for a restaurant
 
-URL: http://localhost:3000/api/v1/restaurants/<restaurant_id>
+URL: https://restaurant-services.herokuapp.com/api/v1/restaurants/<restaurant_id>
 Method: GET
