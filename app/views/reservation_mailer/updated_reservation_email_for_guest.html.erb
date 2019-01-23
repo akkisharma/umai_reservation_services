@@ -10,7 +10,7 @@
     <% end %>
 
   	<% if @reservation.reservation_time_previous_change.present? %>
-	    Your the reservation time changed from <b><%= @reservation.reservation_time_previous_change[0].strftime("%d %B, %Y %H:%M %p") %></b> to <b><%= @reservation.reservation_time_previous_change[1].strftime("%d %B, %Y %H:%M %p") %></b>.
+	    Your the reservation time changed from <b><%= @reservation.reservation_time_previous_change[0].strftime("%d %B, %Y %I:%M %P") %></b> to <b><%= @reservation.reservation_time_previous_change[1].strftime("%d %B, %Y %I:%M %P") %></b>.
 	  <% end %>
   </p>
 

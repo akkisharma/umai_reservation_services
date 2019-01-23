@@ -7,7 +7,7 @@
   <p>
     You have successfully reserved table <b><%= @table.name %></b>, with <b><%= @reservation.guest_count %></b> number of guests.<br>
     <br>
-    Please join on time <b><%= @reservation.reservation_time.strftime("%d %B, %Y %H:%M %p") %></b>.
+    Please join on time <b><%= @reservation.reservation_time.strftime("%d %B, %Y %I:%M %P") %></b>.
   </p>
 
   <p>
