@@ -20,8 +20,13 @@ Things you need to do for application setup:
 
 # Database setup:
 
+	For Development environment:
 	- rails db:create
 	- rails db:migrate
+	- rails db:seed
+
+	For Test environment:
+	- rails db:test:prepare
 	- rails db:seed
 
 
@@ -34,3 +39,7 @@ Things you need to do for application setup:
 
 	- API list given in project documentation
 
+
+# Run RSpec:
+
+	- bundle exec rspec --format documentation

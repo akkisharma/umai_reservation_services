@@ -9,11 +9,11 @@
 
 guest = Guest.create({
 	name: "akash sharma",
-	email: "sharma.akash1892@gmail.com" })
+	email: "laura.d@letsumai.com" })
 
 restaurant = Restaurant.create({
 	name: "punjabi rasoi",
-	email: "sharma.akash1891@gmail.com",
+	email: "info@letsumai.com",
 	phone: "1234567980",
 	latitude: 18.6523893,
 	longitude: 73.7311266,

@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_01_20_052557) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "guests", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -20,9 +23,9 @@ ActiveRecord::Schema.define(version: 2019_01_20_052557) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.integer "guest_id"
-    t.integer "table_id"
-    t.integer "restaurant_id"
+    t.bigint "guest_id"
+    t.bigint "table_id"
+    t.bigint "restaurant_id"
     t.datetime "reservation_time"
     t.datetime "reservation_end"
     t.integer "guest_count"
@@ -54,10 +57,14 @@ ActiveRecord::Schema.define(version: 2019_01_20_052557) do
     t.string "name"
     t.integer "min_guest"
     t.integer "max_guest"
-    t.integer "restaurant_id"
+    t.bigint "restaurant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["restaurant_id"], name: "index_tables_on_restaurant_id"
   end
 
+  add_foreign_key "reservations", "guests"
+  add_foreign_key "reservations", "restaurants"
+  add_foreign_key "reservations", "tables"
+  add_foreign_key "tables", "restaurants"
 end
